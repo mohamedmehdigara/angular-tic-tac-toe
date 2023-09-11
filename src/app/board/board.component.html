@@ -1,1 +1,8 @@
-<p>board works!</p>
+<div class="board">
+    <div class="row" *ngFor="let row of [0, 1, 2]">
+      <div class="square" *ngFor="let col of [0, 1, 2]; let i = index" (click)="makeMove(row * 3 + col)">
+        {{ squares[row * 3 + col] }}
+      </div>
+    </div>
+  </div>
+  

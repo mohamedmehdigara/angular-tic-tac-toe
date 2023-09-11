@@ -19,6 +19,27 @@ export class BoardComponent {
   }
 
   calculateWinner(): void {
-    // Implement your win condition logic here
+    const winPatterns = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (const pattern of winPatterns) {
+      const [a, b, c] = pattern;
+      if (
+        this.squares[a] &&
+        this.squares[a] === this.squares[b] &&
+        this.squares[a] === this.squares[c]
+      ) {
+        this.winner = this.squares[a];
+        return;
+      }
+    }
   }
 }
